@@ -1,9 +1,7 @@
-from app import create_app 
-from app.db import db
+from app import create_app
 
 app = create_app()
- 
 
-db.init_app(app)
 with app.app_context():
+    from app.db import db
     db.create_all()
