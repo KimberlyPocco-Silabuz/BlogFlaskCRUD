@@ -1,11 +1,17 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from .config import Config
+from .db import db
+from app.routes.routes import app_router
 
-from app.routes.app import app_router
+
 def create_app():
     app = Flask(__name__)
+    # Vamos a darle parametros de configuracion
     app.config.from_object(Config)
-    app.register_blueprint(app_router) 
-    db= SQLAlchemy(app)
+    # Registrar sus módulos de Blueprint:
+    app.register_blueprint(app_router)
+    # Vamos a crear la instancia de la DB para las migraciones:
+    db.init_app(app)
     return app
+
+
