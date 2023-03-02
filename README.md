@@ -1,0 +1,4 @@
+# INSTALACIONES
+```
+pip install Flask
+```
