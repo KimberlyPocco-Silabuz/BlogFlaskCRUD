@@ -1,4 +1,4 @@
 # INSTALACIONES
 ```
-pip install Flask
+pip install -r requirements.txt
 ```
